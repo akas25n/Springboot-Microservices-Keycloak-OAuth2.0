@@ -1,6 +1,8 @@
 package com.appsdeveloper.resourceserver.controller;
 
 import com.appsdeveloper.resourceserver.response.UserRest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,9 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
+    @Autowired
+    Environment environment;
+
     @GetMapping("/status/check")
     public String status(){
-        return "Working.....";
+        return "Working.....on port : " + environment.getProperty("local.server.port");
     }
 
     //@Secured("ROLE_developer")
