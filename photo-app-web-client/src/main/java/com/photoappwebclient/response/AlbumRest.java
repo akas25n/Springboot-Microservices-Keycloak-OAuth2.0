@@ -1,4 +1,6 @@
-package com.photoappwebclient.model;
+package com.photoappwebclient.response;
+
+import lombok.*;
 
 @Data
 @NoArgsConstructor
